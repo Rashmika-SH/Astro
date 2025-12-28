@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { emailjsConfig } from '../../config/emailjs';
 import './Contact.css';
 
 const Contact = () => {
@@ -11,11 +13,52 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a backend
-    alert('Thank you for your message! We will contact you soon.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+      console.log('Sending email with user data...');
+      
+      // Complete template parameters with all user information
+      const templateParams = {
+        name: formData.name,
+        user_message: `Email: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`,
+        time: new Date().toLocaleString(),
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        user_email: formData.email,
+        user_phone: formData.phone,
+        user_name: formData.name,
+      };
+
+      console.log('Template parameters:', templateParams);
+
+      const response = await emailjs.send(
+        'service_lq4bhgl',
+        'template_9fb7dhg', 
+        templateParams,
+        'P43JHS26VziQhLuO5'
+      );
+      
+      console.log('SUCCESS! Email sent:', response);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+    } catch (error: any) {
+      console.error('FAILED - Full error:', error);
+      console.error('Error status:', error.status);
+      console.error('Error text:', error.text);
+      
+      setSubmitStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -105,9 +148,21 @@ const Contact = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary btn-block">
-                    Send Message
+                  <button type="submit" className="btn btn-primary btn-block" disabled={isLoading}>
+                    {isLoading ? 'Sending...' : 'Send Message'}
                   </button>
+
+                  {submitStatus === 'success' && (
+                    <div className="form-message success">
+                      ✅ Thank you for your message! We will contact you soon.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="form-message error">
+                      ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+                    </div>
+                  )}
                 </form>
               </div>
             </motion.div>
