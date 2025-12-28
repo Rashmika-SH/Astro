@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
-import { emailjsConfig } from '../../config/emailjs';
 import './Contact.css';
 
 const Contact = () => {
