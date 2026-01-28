@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import SEO from '../../components/SEO/SEO';
+import { pageSEO } from '../../config/seo';
+import { trackContactForm, trackPhoneCall, trackWhatsAppClick } from '../../components/GoogleAnalytics/GoogleAnalytics';
 import './Contact.css';
 
 const Contact = () => {
@@ -49,6 +52,9 @@ const Contact = () => {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
       
+      // Track successful form submission
+      trackContactForm();
+      
     } catch (error: any) {
       console.error('FAILED - Full error:', error);
       console.error('Error status:', error.status);
@@ -69,6 +75,13 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title={pageSEO.contact.title}
+        description={pageSEO.contact.description}
+        keywords={pageSEO.contact.keywords}
+        url="/contact"
+      />
+      
       <section className="contact-hero">
         <div className="container">
           <motion.div
@@ -183,7 +196,7 @@ const Contact = () => {
                     </div>
                     <div className="method-details">
                       <h3>Phone</h3>
-                      <a href="tel:+61405911434">+61 405 911 434</a>
+                      <a href="tel:+61405911434" onClick={trackPhoneCall}>+61 405 911 434</a>
                     </div>
                   </div>
 
@@ -203,7 +216,7 @@ const Contact = () => {
                     </div>
                     <div className="method-details">
                       <h3>WhatsApp</h3>
-                      <a href="http://wa.me/+61405911434" target="_blank" rel="noopener noreferrer">
+                      <a href="http://wa.me/+61405911434" target="_blank" rel="noopener noreferrer" onClick={trackWhatsAppClick}>
                         Chat with us
                       </a>
                     </div>
@@ -221,10 +234,10 @@ const Contact = () => {
                 </div>
 
                 <div className="quick-contact-buttons">
-                  <a href="tel:+61405911434" className="btn btn-gold">
+                  <a href="tel:+61405911434" className="btn btn-gold" onClick={trackPhoneCall}>
                     <FaPhone /> Call Now
                   </a>
-                  <a href="http://wa.me/+61405911434" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  <a href="http://wa.me/+61405911434" className="btn btn-secondary" target="_blank" rel="noopener noreferrer" onClick={trackWhatsAppClick}>
                     <FaWhatsapp /> WhatsApp
                   </a>
                 </div>

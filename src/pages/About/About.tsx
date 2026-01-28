@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion';
 import StatsCounter from '../../components/StatsCounter/StatsCounter';
+import SEO from '../../components/SEO/SEO';
+import { pageSEO } from '../../config/seo';
 import './About.css';
 
 const About = () => {
   return (
     <div className="about-page">
+      <SEO
+        title={pageSEO.about.title}
+        description={pageSEO.about.description}
+        keywords={pageSEO.about.keywords}
+        url="/about"
+      />
+      
       <section className="about-hero">
         <div className="container">
           <motion.div

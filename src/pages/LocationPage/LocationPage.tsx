@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaArrowLeft } from 'react-icons/fa';
 import { getLocationById } from '../../data/locations';
 import { services } from '../../data/services';
+import SEO from '../../components/SEO/SEO';
+import { locationSEO } from '../../config/seo';
 import './LocationPage.css';
 
 const LocationPage = () => {
@@ -20,8 +22,17 @@ const LocationPage = () => {
     );
   }
 
+  const seoData = locationSEO[location.id as keyof typeof locationSEO];
+
   return (
     <div className="location-page">
+      <SEO
+        title={seoData?.title || `Astrology Services in ${location.name} - Astrologer Shiva Anagh`}
+        description={seoData?.description || location.description}
+        keywords={seoData?.keywords || ['astrology', location.name.toLowerCase(), 'vedic astrology']}
+        url={`/locations/${location.id}`}
+      />
+      
       <section className="location-hero">
         <div className="container">
           <Link to="/#locations" className="back-link">

@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaPhone, FaWhatsapp, FaCheckCircle, FaArrowLeft } from 'react-icons/fa';
 import { getServiceById } from '../../data/services';
+import SEO from '../../components/SEO/SEO';
+import { serviceSEO } from '../../config/seo';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
@@ -24,8 +26,18 @@ const ServiceDetail = () => {
     );
   }
 
+  const seoData = serviceSEO[service.id as keyof typeof serviceSEO];
+
   return (
     <div className="service-detail-page">
+      <SEO
+        title={seoData?.title || `${service.title} - Astrologer Shiva Anagh Australia`}
+        description={seoData?.description || service.description}
+        keywords={seoData?.keywords || ['astrology', 'vedic astrology', service.title.toLowerCase()]}
+        url={`/services/${service.id}`}
+        image={service.image}
+      />
+      
       <section className="service-hero">
         <div className="container">
           <Link to="/#services" className="back-link">

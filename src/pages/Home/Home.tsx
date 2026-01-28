@@ -3,14 +3,26 @@ import Hero from '../../components/Hero/Hero';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import StatsCounter from '../../components/StatsCounter/StatsCounter';
 import Testimonials from '../../components/Testimonials/Testimonials';
+import SEO from '../../components/SEO/SEO';
+import SchemaMarkup from '../../components/SchemaMarkup/SchemaMarkup';
 import { services } from '../../data/services';
 import { locations } from '../../data/locations';
+import { pageSEO } from '../../config/seo';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home-page">
+      <SEO
+        title={pageSEO.home.title}
+        description={pageSEO.home.description}
+        keywords={pageSEO.home.keywords}
+        url="/"
+      />
+      <SchemaMarkup type="person" data={{}} />
+      <SchemaMarkup type="localBusiness" data={{}} />
+      
       <Hero />
       
       <StatsCounter />
