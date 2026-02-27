@@ -1,4 +1,5 @@
 /* ===== CSS RESET & BASE STYLES ===== */
+/* Universal selector for consistent box model */
 * {
   margin: 0;
   padding: 0;
