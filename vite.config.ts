@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   build: {
     cssMinify: false,
+  },
+  esbuild: {
+    logOverride: { 'css-syntax-error': 'silent' }
   }
 })
