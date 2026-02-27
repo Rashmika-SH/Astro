@@ -123,6 +123,51 @@ export const serviceSEO = {
     title: "Psychic Reading Australia - Intuitive Guidance | Astrologer Shiva Anagh",
     description: "Connect with divine wisdom through psychic readings by Shiva Anagh. Gain clarity, make better decisions, and understand your life purpose.",
     keywords: ["psychic reading australia", "intuitive reading", "spiritual guidance", "psychic consultation", "divine wisdom"]
+  },
+  "kundli-reading": {
+    title: "Kundli Reading Australia - Birth Chart Analysis | Astrologer Shiva Anagh",
+    description: "Comprehensive Kundli analysis for marriage compatibility, career guidance, and life predictions by expert astrologer Shiva Anagh.",
+    keywords: ["kundli reading", "birth chart analysis", "kundli matching", "horoscope analysis", "vedic chart reading"]
+  },
+  "relationship-marriage": {
+    title: "Relationship & Marriage Problem Solution Australia | Astrologer Shiva Anagh",
+    description: "Expert solutions for relationship conflicts, marriage issues, and love problems. Restore harmony and strengthen your bond.",
+    keywords: ["relationship problems", "marriage counseling", "love problem solution", "relationship astrology", "marriage compatibility"]
+  },
+  "divorce-problems": {
+    title: "Divorce Problem Solution Australia - Save Your Marriage | Shiva Anagh",
+    description: "Prevent divorce and save your marriage through powerful astrological interventions by Astrologer Shiva Anagh.",
+    keywords: ["divorce solution", "save marriage", "prevent divorce", "marriage problems", "divorce astrology"]
+  },
+  "clairvoyant-reading": {
+    title: "Clairvoyant Reading Australia - Clear Vision | Astrologer Shiva Anagh",
+    description: "Clear vision into your past, present, and future through clairvoyant abilities. Receive spiritual insights and guidance.",
+    keywords: ["clairvoyant reading", "psychic vision", "future prediction", "spiritual insight", "clairvoyance"]
+  },
+  "jealousy-curse-removal": {
+    title: "Jealousy & Curse Removal Australia | Astrologer Shiva Anagh",
+    description: "Remove curses, jealousy effects, and evil intentions. Break free from harmful energies and reclaim your success.",
+    keywords: ["curse removal", "jealousy removal", "evil intentions", "negative energy", "curse breaking"]
+  },
+  "nazar-evil-eye-removal": {
+    title: "Nazar & Evil Eye Removal Australia | Astrologer Shiva Anagh",
+    description: "Protection from evil eye (Nazar) and removal of its harmful effects. Shield yourself and your family from negative glares.",
+    keywords: ["evil eye removal", "nazar removal", "drishti removal", "evil eye protection", "nazar protection"]
+  },
+  "voodoo-removal": {
+    title: "Voodoo Removal Australia - Break Dark Magic Spells | Shiva Anagh",
+    description: "Expert removal of voodoo spells and dark magic practices. Regain control of your life and break free from voodoo.",
+    keywords: ["voodoo removal", "dark magic removal", "voodoo spell breaking", "black magic", "voodoo protection"]
+  },
+  "witchcraft-removal": {
+    title: "Witchcraft Removal Australia - Remove Hexes & Sorcery | Shiva Anagh",
+    description: "Complete removal of witchcraft, hexes, and dark sorcery effects. Permanent protection from supernatural harm.",
+    keywords: ["witchcraft removal", "hex removal", "sorcery removal", "dark magic", "witchcraft protection"]
+  },
+  "pujas-lord-shiva": {
+    title: "Pujas for Lord Shiva Australia - Sacred Rituals | Astrologer Shiva Anagh",
+    description: "Sacred pujas and rituals dedicated to Lord Shiva for blessings and problem resolution. Transform your life with divine grace.",
+    keywords: ["shiva puja", "rudrabhishek", "lord shiva rituals", "vedic puja", "shiva worship"]
   }
 };
 
